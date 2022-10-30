@@ -2,28 +2,41 @@
 </script>
 
 <script lang="ts">
-  import { browser } from '$app/environment'
+  import { browser } from '$app/environment';
 
-  let databases = browser ? indexedDB.databases() : null;
+  let databases: IDBDatabaseInfo[] = [];
+  let isLoading: boolean = !browser;
+
+  const refresh = async () => {
+    isLoading = true;
+    try {
+      databases = await indexedDB.databases();
+    } finally {
+      isLoading = false;
+    }
+  };
+
+  if (browser) {
+    refresh();
+  }
 </script>
 
 <h1>IndexedDB Databases:</h1>
 
-{#if databases}
-  {#await databases}
+<button on:click|preventDefault={refresh} disabled={isLoading}>Refresh</button>
+<div>
+  {#if isLoading}
     wait...
-  {:then databases}
+  {:else if databases.length}
     <ul>
-      {#each databases as database}
+      {#each databases as database (database.name)}
         <li>
-          {database.name}
+          <a href={`/db/${database.name}`}>{database.name}</a>
           {database.version}
         </li>
-      {:else}
-        <li>—</li>
       {/each}
     </ul>
-  {/await}
-{:else}
-  wait......
-{/if}
+  {:else}
+    No database
+  {/if}
+</div>
