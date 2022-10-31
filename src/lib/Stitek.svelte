@@ -15,16 +15,18 @@
 
 <div class="stitek">
   <div class="main">
-    <div class="name" contenteditable="true" bind:textContent={produkt.name}>{produkt.name}</div>
-    <div class="latin-name" contenteditable="true" bind:textContent={produkt.latinName}>
-      {produkt.latinName}
+    <div class="name" contenteditable="true" bind:innerHTML={produkt.name}>
+      {@html produkt.name}
+    </div>
+    <div class="latin-name" contenteditable="true" bind:innerHTML={produkt.latinName}>
+      {@html produkt.latinName}
     </div>
     <Logo />
-    <div class="druh-obsahu" contenteditable="true" bind:textContent={produkt.druhObsahu}>
-      {produkt.druhObsahu}
+    <div class="druh-obsahu" contenteditable="true" bind:innerHTML={produkt.druhObsahu}>
+      {@html produkt.druhObsahu}
     </div>
-    <div class="text-suvenyr" contenteditable="true" bind:textContent={produkt.textSuvenyr}>
-      {produkt.textSuvenyr}
+    <div class="text-suvenyr" contenteditable="true" bind:innerHTML={produkt.textSuvenyr}>
+      {@html produkt.textSuvenyr}
     </div>
   </div>
   <div class="aside">
@@ -33,12 +35,14 @@
         <table>
           <tr>
             <th>Obsah:</th>
-            <td contenteditable="true" bind:textContent={produkt.textObsah}>{produkt.textObsah}</td>
+            <td contenteditable="true" bind:innerHTML={produkt.textObsah}
+              >{@html produkt.textObsah}</td
+            >
           </tr>
           <tr>
             <th>Vyrobeno:</th>
-            <td contenteditable="true" bind:textContent={produkt.textVyrobeno}
-              >{produkt.textVyrobeno}</td
+            <td contenteditable="true" bind:innerHTML={produkt.textVyrobeno}
+              >{@html produkt.textVyrobeno}</td
             >
           </tr>
         </table>
@@ -53,29 +57,37 @@
     --stitek-height: 6.5cm;
     --aside-spacing: 0cm;
     --aside-width: 1.2cm;
+    --extra-padding: 1mm;
+  }
+
+  .stitek {
+    page-break-inside: avoid;
+    position: relative;
+    width: var(--stitek-width);
+    height: var(--stitek-height);
+    border: 1px #666 dashed;
   }
 
   .main {
     font-family: 'Century Gothic', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    /* background-color: aqua; */
     width: calc(var(--stitek-width) - var(--aside-width) - var(--aside-spacing));
     height: var(--stitek-height);
     text-align: center;
     overflow: visible;
   }
 
-  .main div {
+  .main > div {
     flex: auto;
     border: 1px white dashed;
+    padding: var(--extra-padding);
   }
 
-  .stitek {
-    position: relative;
-    width: var(--stitek-width);
-    height: var(--stitek-height);
-    border: 1px #666 dashed;
+  .name {
+    font-size: larger;
+    font-weight: bolder;
   }
 
   .aside {
