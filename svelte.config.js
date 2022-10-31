@@ -13,7 +13,11 @@ const config = {
   preprocess: [preprocess(), mdsvex(mdsvexConfig)],
 
   kit: {
-    adapter: adapter()
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build'
+      // fallback: null
+    })
   },
 
   vitePlugin: {
