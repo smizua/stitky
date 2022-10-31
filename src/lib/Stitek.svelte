@@ -58,6 +58,7 @@
   }
 
   .main {
+    font-family: 'Century Gothic', sans-serif;
     display: flex;
     flex-direction: column;
     background-color: aqua;
