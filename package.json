@@ -13,7 +13,7 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "@types/node": "^18.11.8",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
