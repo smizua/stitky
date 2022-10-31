@@ -19,9 +19,7 @@
     <div class="latin-name" contenteditable="true" bind:textContent={produkt.latinName}>
       {produkt.latinName}
     </div>
-    <div>
-      <Logo />
-    </div>
+    <Logo />
     <div class="druh-obsahu" contenteditable="true" bind:textContent={produkt.druhObsahu}>
       {produkt.druhObsahu}
     </div>
@@ -69,9 +67,10 @@
   }
 
   .main div {
-    flex-grow: 1;
+    flex: auto;
     border: 1px white dashed;
   }
+
   .stitek {
     position: relative;
     width: var(--stitek-width);
