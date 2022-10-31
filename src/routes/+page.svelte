@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Stitek from '$lib/Stitek.svelte';
   import Logo from '$lib/logo.svelte';
   import produkty from '$lib/produkty.json';
@@ -8,7 +8,7 @@
     velikosti.add(velikostStitku);
   }
 
-  const velikostToClassName = {
+  const velikostToClassName: Record<string, string> = {
     šťáva: 'stava',
     štítek: 'stitek',
     tinktura: 'tinktura'
