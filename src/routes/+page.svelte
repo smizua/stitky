@@ -42,12 +42,10 @@
   }
 
   .stitky {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    page-break-inside: auto;
   }
 
   .stitek {
-    flex: none;
+    display: inline-block;
   }
 </style>
