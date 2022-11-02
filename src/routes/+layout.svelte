@@ -44,12 +44,12 @@
       margin: 0;
       padding: 0;
     }
-  }
 
-  @page {
-    size: A4 portrait;
+    @page {
+      size: 210mm 297mm;
 
-    /* this affects the margin in the printer settings */
-    margin: 5mm 5mm 5mm 5mm;
+      /* this affects the margin in the printer settings */
+      margin: 3mm 0mm -3mm 0mm;
+    }
   }
 </style>

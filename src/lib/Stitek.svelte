@@ -5,7 +5,7 @@
   const velikosti: Record<string, string> = {
     tinktura: `
       --stitek-width: 80mm;
-      --stitek-height: 44.5mm;
+      --stitek-height: 44mm;
       --aside-spacing: 0mm;
       --aside-width: 8mm;
       --extra-padding: 0mm;
