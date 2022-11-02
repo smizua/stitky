@@ -36,10 +36,6 @@
       visibility: hidden;
     }
 
-    :global(*) {
-      box-sizing: content-box;
-    }
-
     :global(body) {
       margin: 0;
       padding: 0;
@@ -49,7 +45,7 @@
       size: 210mm 297mm;
 
       /* this affects the margin in the printer settings */
-      margin: 3mm 0mm -3mm 0mm;
+      margin: 5mm 0mm 0mm 5mm;
     }
   }
 </style>

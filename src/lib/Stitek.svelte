@@ -3,23 +3,21 @@
   import Toxic from './toxic.svelte';
 
   const velikosti: Record<string, string> = {
-    tinktura: `
-      --stitek-width: 80mm;
-      --stitek-height: 44mm;
-      --aside-spacing: 0mm;
-      --aside-width: 8mm;
-      --extra-padding: 0mm;
-      --font-title-size: 14pt;
-      --font-base-size: 7pt;
-    `,
     stava: `
-      --stitek-width: 100mm;
-      --stitek-height: 65mm;
+      --stitek-width: ${100 - 1.9}mm;
+      --stitek-height: ${65 - 4.4}mm;
       --aside-spacing: 0mm;
       --aside-width: 12mm;
-      --extra-padding: 0mm;
       --font-title-size: 20pt;
       --font-base-size: 10pt;
+    `,
+    tinktura: `
+      --stitek-width: ${80 - 1.9}mm;
+      --stitek-height: ${45 - 4.4}mm;
+      --aside-spacing: 0mm;
+      --aside-width: 8mm;
+      --font-title-size: 14pt;
+      --font-base-size: 7pt;
     `
   };
 
@@ -94,7 +92,6 @@
     --stitek-height: 65mm;
     --aside-spacing: 0mm;
     --aside-width: 12mm;
-    --extra-padding: 0mm;
     --font-title-size: 14pt;
     --font-base-size: 7pt;
   }
@@ -104,16 +101,15 @@
     position: relative;
     width: var(--stitek-width);
     height: var(--stitek-height);
-    border: 0.01mm #ccc dotted;
     font-size: var(--font-base-size);
     font-family: 'century gothic', sans-serif;
+    border: 0.2mm #ccc dashed;
     padding: 2mm 0 2mm 1.5mm;
   }
 
   .main {
     display: flex;
     flex-direction: column;
-    /* background-color: aqua; */
     width: calc(var(--stitek-width) - var(--aside-width) - var(--aside-spacing));
     height: var(--stitek-height);
     text-align: center;
@@ -122,7 +118,6 @@
 
   .main > div {
     flex: auto;
-    padding: var(--extra-padding);
   }
 
   .toxic {
