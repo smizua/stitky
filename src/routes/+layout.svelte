@@ -41,8 +41,15 @@
     }
 
     :global(body) {
-      margin: 2mm;
+      margin: 0;
       padding: 0;
     }
+  }
+
+  @page {
+    size: A4 portrait;
+
+    /* this affects the margin in the printer settings */
+    margin: 5mm 5mm 5mm 5mm;
   }
 </style>
