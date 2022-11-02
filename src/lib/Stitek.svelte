@@ -101,7 +101,7 @@
     height: var(--stitek-height);
     border: 0.01mm #000 dashed;
     font-size: var(--font-base-size);
-    font-family: 'Century Gothic', sans-serif;
+    font-family: 'century gothic', sans-serif;
     padding: 2mm 0 2mm 1.5mm;
   }
 
