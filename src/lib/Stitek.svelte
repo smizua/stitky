@@ -104,7 +104,7 @@
     position: relative;
     width: var(--stitek-width);
     height: var(--stitek-height);
-    border: 0.01mm #000 dashed;
+    border: 0.01mm #ccc dotted;
     font-size: var(--font-base-size);
     font-family: 'century gothic', sans-serif;
     padding: 2mm 0 2mm 1.5mm;
@@ -122,7 +122,6 @@
 
   .main > div {
     flex: auto;
-    border: 1px white dashed;
     padding: var(--extra-padding);
   }
 
