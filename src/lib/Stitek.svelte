@@ -49,17 +49,17 @@
 
 <div class="stitek" {style}>
   <div class="main">
-    <div class="name" contenteditable="true" bind:innerHTML={produkt.name}>
+    <div class="name" contenteditable bind:innerHTML={produkt.name}>
       {@html produkt.name}
     </div>
-    <div class="latin-name" contenteditable="true" bind:innerHTML={produkt.latinName}>
+    <div class="latin-name" contenteditable bind:innerHTML={produkt.latinName}>
       {@html produkt.latinName}
     </div>
     <Logo />
-    <div class="druh-obsahu" contenteditable="true" bind:innerHTML={produkt.druhObsahu}>
+    <div class="druh-obsahu" contenteditable bind:innerHTML={produkt.druhObsahu}>
       {@html produkt.druhObsahu}
     </div>
-    <div class="text-suvenyr" contenteditable="true" bind:innerHTML={produkt.textSuvenyr}>
+    <div class="text-suvenyr" contenteditable bind:innerHTML={produkt.textSuvenyr}>
       {@html produkt.textSuvenyr}
     </div>
     {#if produkt.toxic}
@@ -71,13 +71,11 @@
       <div class="aside-inner rotate">
         <div>
           Obsah:
-          <span contenteditable="true" bind:innerHTML={produkt.textObsah}
-            >{@html produkt.textObsah}</span
-          >
+          <span contenteditable bind:innerHTML={produkt.textObsah}>{@html produkt.textObsah}</span>
         </div>
         <div>
           Vyrobeno:
-          <span contenteditable="true" bind:innerHTML={produkt.textVyrobeno}
+          <span contenteditable bind:innerHTML={produkt.textVyrobeno}
             >{@html produkt.textVyrobeno}</span
           >
         </div>
