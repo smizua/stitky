@@ -1,5 +1,6 @@
 <script lang="ts">
   import Logo from './logo.svelte';
+  import Toxic from './toxic.svelte';
 
   const velikosti: Record<string, string> = {
     tinktura: `
@@ -41,7 +42,8 @@
     textSuvenyr: 'Suvenýr z bylinkové zahrádky.',
     textObsah: '50 ml',
     textVyrobeno: ' červenec 2022',
-    pocetStitku: 7
+    pocetStitku: 7,
+    toxic: true
   };
 
   $: style = velikosti[produkt.velikostStitku];
@@ -62,6 +64,9 @@
     <div class="text-suvenyr" contenteditable="true" bind:innerHTML={produkt.textSuvenyr}>
       {@html produkt.textSuvenyr}
     </div>
+    {#if produkt.toxic}
+      <div class="toxic"><Toxic /></div>
+    {/if}
   </div>
   <div class="aside">
     <div class="aside-outer">
@@ -119,6 +124,12 @@
     flex: auto;
     border: 1px white dashed;
     padding: var(--extra-padding);
+  }
+
+  .toxic {
+    position: absolute;
+    bottom: 2mm;
+    right: var(--aside-width);
   }
 
   .name {
