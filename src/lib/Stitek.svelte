@@ -1,19 +1,53 @@
 <script lang="ts">
   import Logo from './logo.svelte';
 
+  const velikosti: Record<string, string> = {
+    tinktura: `
+      --stitek-width: 80mm;
+      --stitek-height: 45mm;
+      --aside-spacing: 0mm;
+      --aside-width: 8mm;
+      --extra-padding: 0mm;
+      --font-title-size: 14pt;
+      --font-base-size: 7pt;
+    `,
+    stava: `
+      --stitek-width: 100mm;
+      --stitek-height: 65mm;
+      --aside-spacing: 0mm;
+      --aside-width: 12mm;
+      --extra-padding: 0mm;
+      --font-title-size: 20pt;
+      --font-base-size: 10pt;
+    `
+  };
+
+  // export let produkt = {
+  //   name: 'Lichořeřišnice větší <small>– květ, list, semeno</small>',
+  //   latinName: 'Tropaeolum majus – Flos, Folium, Semen',
+  //   druhObsahu: 'Tinktura z léčivé rostliny',
+  //   velikostStitku: 'tinktura',
+  //   textSuvenyr: 'Suvenýr z bylinkové zahrádky.',
+  //   textObsah: '50 ml',
+  //   textVyrobeno: ' červenec 2022',
+  //   pocetStitku: 7
+  // };
+
   export let produkt = {
-    name: 'Lichořeřišnice větší – květ, list, semeno ',
+    name: 'Lichořeřišnice větší <small>– květ, list, semeno</small>',
     latinName: 'Tropaeolum majus – Flos, Folium, Semen',
     druhObsahu: 'Tinktura z léčivé rostliny',
-    velikostStitku: 'tinktura',
+    velikostStitku: 'stava',
     textSuvenyr: 'Suvenýr z bylinkové zahrádky.',
     textObsah: '50 ml',
     textVyrobeno: ' červenec 2022',
     pocetStitku: 7
   };
+
+  $: style = velikosti[produkt.velikostStitku];
 </script>
 
-<div class="stitek">
+<div class="stitek" {style}>
   <div class="main">
     <div class="name" contenteditable="true" bind:innerHTML={produkt.name}>
       {@html produkt.name}
@@ -32,20 +66,18 @@
   <div class="aside">
     <div class="aside-outer">
       <div class="aside-inner rotate">
-        <table>
-          <tr>
-            <th>Obsah:</th>
-            <td contenteditable="true" bind:innerHTML={produkt.textObsah}
-              >{@html produkt.textObsah}</td
-            >
-          </tr>
-          <tr>
-            <th>Vyrobeno:</th>
-            <td contenteditable="true" bind:innerHTML={produkt.textVyrobeno}
-              >{@html produkt.textVyrobeno}</td
-            >
-          </tr>
-        </table>
+        <div>
+          Obsah:
+          <span contenteditable="true" bind:innerHTML={produkt.textObsah}
+            >{@html produkt.textObsah}</span
+          >
+        </div>
+        <div>
+          Vyrobeno:
+          <span contenteditable="true" bind:innerHTML={produkt.textVyrobeno}
+            >{@html produkt.textVyrobeno}</span
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -53,11 +85,13 @@
 
 <style>
   :root {
-    --stitek-width: 10.5cm;
-    --stitek-height: 6.5cm;
-    --aside-spacing: 0cm;
-    --aside-width: 1.2cm;
-    --extra-padding: 1mm;
+    --stitek-width: 105mm;
+    --stitek-height: 65mm;
+    --aside-spacing: 0mm;
+    --aside-width: 12mm;
+    --extra-padding: 0mm;
+    --font-title-size: 14pt;
+    --font-base-size: 7pt;
   }
 
   .stitek {
@@ -65,11 +99,13 @@
     position: relative;
     width: var(--stitek-width);
     height: var(--stitek-height);
-    border: 1px #666 dashed;
+    border: 0.01mm #000 dashed;
+    font-size: var(--font-base-size);
+    font-family: 'Century Gothic', sans-serif;
+    padding: 2mm 0 2mm 1.5mm;
   }
 
   .main {
-    font-family: 'Century Gothic', sans-serif;
     display: flex;
     flex-direction: column;
     /* background-color: aqua; */
@@ -86,8 +122,20 @@
   }
 
   .name {
-    font-size: larger;
+    font-size: var(--font-title-size);
     font-weight: bolder;
+  }
+
+  .latin-name {
+    font-style: italic;
+  }
+
+  .druh-obsahu {
+    font-weight: bold;
+  }
+
+  .text-suvenyr {
+    font-style: italic;
   }
 
   .aside {
@@ -111,20 +159,7 @@
     left: 50%;
     width: var(--stitek-height);
     height: var(--aside-width);
-    /* text-align: center; */
-  }
-
-  table {
-    margin: 0 auto;
-  }
-
-  th {
-    text-align: right;
-    font-weight: inherit;
-  }
-
-  td {
-    text-align: left;
+    text-align: center;
   }
 
   .rotate {
