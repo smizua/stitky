@@ -3,6 +3,22 @@
   import Toxic from './toxic.svelte';
 
   const velikosti: Record<string, string> = {
+    jam: `
+      --stitek-width: ${95 - 1.9}mm;
+      --stitek-height: ${40 - 4.4}mm;
+      --aside-spacing: 0mm;
+      --aside-width: 12mm;
+      --font-title-size: 20pt;
+      --font-base-size: 10pt;
+    `,
+    likér: `
+      --stitek-width: ${60 - 1.9}mm;
+      --stitek-height: ${80 - 4.4}mm;
+      --aside-spacing: 0mm;
+      --aside-width: 12mm;
+      --font-title-size: 20pt;
+      --font-base-size: 10pt;
+    `,
     stava: `
       --stitek-width: ${100 - 1.9}mm;
       --stitek-height: ${65 - 4.4}mm;

@@ -12,6 +12,7 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
     "deploy": "node ./scripts/gh-pages.js",
+    "csv2json": "pnpx tsx ./scripts/csv2json.ts > ./src/lib/produkty.json",
     "web": "pnpm run build && pnpm run deploy"
   },
   "devDependencies": {
