@@ -121,12 +121,12 @@
     "file": "_app/immutable/assets/_layout-2e34bb26.css",
     "src": "src/routes/+layout.css"
   },
-  "Stitek.css": {
-    "file": "_app/immutable/assets/Stitek-c5df6a69.css",
-    "src": "Stitek.css"
-  },
   "src/routes/+page.css": {
     "file": "_app/immutable/assets/_page-1df8a1fa.css",
     "src": "src/routes/+page.css"
+  },
+  "Stitek.css": {
+    "file": "_app/immutable/assets/Stitek-c5df6a69.css",
+    "src": "Stitek.css"
   }
 }
